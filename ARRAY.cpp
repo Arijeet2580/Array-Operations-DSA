@@ -8,7 +8,7 @@ int size, pos, a[MAX], num;
 
 void printArray() // Function to print the array
 {
-    cout << "The elements of the array are:" << endl;
+    cout << "The printed elements are:" << endl;
     for (int i = 0; i < size; i++)
     {
         cout << a[i] << endl;
@@ -64,17 +64,18 @@ void insertElement() // Function to insert the element in a specific position
 
 void deleteElement() // Function to delete the element in a specific position
 {
-    cout << "Thge deletd element is " << a[pos - 1] << endl;
-    cout << "Enter the position of the element to be inserted into the array: " << endl;
+    cout << "Enter the position of the element to be deleted into the array: " << endl;
     cin >> pos;
     if (invalidPositionChecker())
     {
         return;
     }
+    cout << "The deletd element is " << a[pos - 1] << endl;
     for (int i = pos - 1; i < size - 1; i++)
     {
         a[i] = a[i + 1];
     }
+    printArray();
 }
 
 int main()
@@ -100,6 +101,7 @@ int main()
     }
     while (1)
     {
+        //Menu for array operations
         cout << "********************************************" << endl;
         cout << "Press 1 to print array (Traversal of array)" << endl;
         cout << "Press 2 to insert an element in a specific position" << endl;
