@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-//The include bits/stdc++. h is a header file that we use in our code to include all the standard libraries
+// The include bits/stdc++. h is a header file that we use in our code to include all the standard libraries
 using namespace std;
 
 #define MAX 50 // max size of the array
@@ -23,8 +23,10 @@ bool overflow() // Function for overflow condition
     }
     return false;
 }
-bool underflow(){// Function for underflow condition
-    if(size<=0){
+bool underflow()
+{ // Function for underflow condition
+    if (size <= 0)
+    {
         return true;
     }
     return false;
@@ -60,6 +62,20 @@ void insertElement() // Function to insert the element in a specific position
     printArray();
 }
 
+void deleteElement() // Function to delete the element in a specific position
+{
+    cout << "Thge deletd element is " << a[pos - 1] << endl;
+    cout << "Enter the position of the element to be inserted into the array: " << endl;
+    cin >> pos;
+    if (invalidPositionChecker())
+    {
+        return;
+    }
+    for (int i = pos - 1; i < size - 1; i++)
+    {
+        a[i] = a[i + 1];
+    }
+}
 
 int main()
 {
@@ -72,35 +88,44 @@ int main()
         cout << "Array reached the overflow.\nNo more element can be taken." << endl;
         return 0;
     }
+    if (underflow())
+    {
+        cout << "There is no element in the array left" << endl;
+    }
 
     cout << "Enter elements of the array: " << endl;
     for (i = 0; i < size; i++)
     {
         cin >> a[i];
     }
-
-    cout << "********************************************" << endl;
-    cout << "Press 1 to print array (Traversal of array)" << endl;
-    cout << "Press 2 to insert an element in a specific position" << endl;
-    cout << "Press 3 to delete an element from a specific position" << endl;
-    cout << "Press 4 to search for an element in the array" << endl;
-    cout << "Press 5 to exit" << endl;
-    cout << "********************************************" << endl;
-    cout << "Enter the choice: " << endl;
-    cin >> ch;
-
-    switch (ch)
+    while (1)
     {
-    case 1:
-        printArray();
-        break;
-    case 2:
-        insertElement();
-        break;
-    case 5:
-        return 0;
-    default:
-        break;
+        cout << "********************************************" << endl;
+        cout << "Press 1 to print array (Traversal of array)" << endl;
+        cout << "Press 2 to insert an element in a specific position" << endl;
+        cout << "Press 3 to delete an element from a specific position" << endl;
+        cout << "Press 4 to search for an element in the array" << endl;
+        cout << "Press 5 to exit the program" << endl;
+        cout << "********************************************" << endl;
+        cout << "Enter the choice: " << endl;
+        cin >> ch;
+        switch (ch)
+        {
+        case 1:
+            printArray();
+            break;
+        case 2:
+            insertElement();
+            break;
+        case 3:
+            deleteElement();
+            break;
+        case 5:
+            return 0;
+            break;
+        default:
+            break;
+        }
     }
 
     return 0;
