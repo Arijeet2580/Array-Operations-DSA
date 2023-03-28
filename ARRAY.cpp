@@ -100,6 +100,12 @@ void elementSearch()
     cout << "Enter the element to be searched:" << endl;
     cin >> num;
 }
+void max(){
+
+}
+void min(){
+    
+}
 void append()
 {
     cout << "Enter the element to be added in the array ";
@@ -159,7 +165,7 @@ int main()
             deleteElement();
             break;
         case 4:
-            elementSearch(); // Element search not yet completed
+            elementSearch(); // Elementsearch not yet completed
         case 5:
             get();
             break;
@@ -168,6 +174,13 @@ int main()
             break;
         case 7:
             append();
+            break;
+        case 8:
+            max();//max not yet completed
+            break;
+        case 9:
+            min();//min not yet completed
+            break;
         case 10:
             return 0;
             break;
