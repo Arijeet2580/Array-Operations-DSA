@@ -78,6 +78,37 @@ void deleteElement() // Function to delete the element in a specific position
     printArray();
 }
 
+void get()
+{
+    cout << "Enter the position of the array:";
+    cin >> pos;
+    cout << "The element in the" << pos + 1 << "position is: " << a[pos] << endl;
+}
+void set_val()
+{
+    cout << "Enter the position of the array :";
+    cin >> pos;
+    cout << "Enter the number to put in the" << pos + 1 << "position" << endl;
+    cin >> num;
+    a[pos] = num;
+    cout << "The new array comes out to be" << endl;
+    printArray();
+}
+// Element search not yet completed
+void elementSearch()
+{
+    cout << "Enter the element to be searched:" << endl;
+    cin >> num;
+}
+void append()
+{
+    cout << "Enter the element to be added in the array ";
+    cin >> num;
+    a[size] = num;
+    size++;
+    cout << "The new array comes out to be" << endl;
+    printArray();
+}
 int main()
 {
     int i, ch = 0;
@@ -101,13 +132,18 @@ int main()
     }
     while (1)
     {
-        //Menu for array operations
+        // Menu for array operations
         cout << "********************************************" << endl;
         cout << "Press 1 to print array (Traversal of array)" << endl;
         cout << "Press 2 to insert an element in a specific position" << endl;
         cout << "Press 3 to delete an element from a specific position" << endl;
         cout << "Press 4 to search for an element in the array" << endl;
-        cout << "Press 5 to exit the program" << endl;
+        cout << "Press 5 to get element of the given position in the array" << endl;
+        cout << "Press 6 to set element in the given position in the array" << endl;
+        cout << "Press 7 to append the array" << endl;
+        cout << "Press 8 to find the max element of the array" << endl;
+        cout << "Press 9 to find the min element of the array" << endl;
+        cout << "Press 10 to exit the program" << endl;
         cout << "********************************************" << endl;
         cout << "Enter the choice: " << endl;
         cin >> ch;
@@ -122,7 +158,17 @@ int main()
         case 3:
             deleteElement();
             break;
+        case 4:
+            elementSearch(); // Element search not yet completed
         case 5:
+            get();
+            break;
+        case 6:
+            set_val();
+            break;
+        case 7:
+            append();
+        case 10:
             return 0;
             break;
         default:
