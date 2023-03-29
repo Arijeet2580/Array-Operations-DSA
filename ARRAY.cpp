@@ -4,7 +4,7 @@ using namespace std;
 
 #define MAX 50 // max size of the array
 
-int size, pos, a[MAX], num;
+int size=0, pos=0, a[MAX], num=0;
 
 void printArray() // Function to print the array
 {
@@ -78,13 +78,13 @@ void deleteElement() // Function to delete the element in a specific position
     printArray();
 }
 
-void get()
+void get()//Function to show an element of specific position 
 {
     cout << "Enter the position of the array:";
     cin >> pos;
     cout << "The element in the" << pos + 1 << "position is: " << a[pos] << endl;
 }
-void set_val()
+void set_val()//Function to set an value in specific position 
 {
     cout << "Enter the position of the array :";
     cin >> pos;
@@ -94,11 +94,14 @@ void set_val()
     cout << "The new array comes out to be" << endl;
     printArray();
 }
-// Element search not yet completed
-void elementSearch()
+void elementSearch()//Function to search any element in the array
 {
     cout << "Enter the element to be searched:" << endl;
     cin >> num;
+    while(a[pos]!=num){
+        pos++;
+    }
+    cout<<num<<"is found in"<<pos+1<<"position"<<endl;
 }
 void max(){
 
@@ -165,7 +168,7 @@ int main()
             deleteElement();
             break;
         case 4:
-            elementSearch(); // Elementsearch not yet completed
+            elementSearch();
         case 5:
             get();
             break;
