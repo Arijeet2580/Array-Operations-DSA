@@ -4,7 +4,7 @@ using namespace std;
 
 #define MAX 50 // max size of the array
 
-int size=0, pos=0, a[MAX], num=0;
+int size = 0, pos = 0, a[MAX], num = 0, max_num = 0, min_num = 0, max_index = 0, min_index = 0;
 
 void printArray() // Function to print the array
 {
@@ -78,13 +78,13 @@ void deleteElement() // Function to delete the element in a specific position
     printArray();
 }
 
-void get()//Function to show an element of specific position 
+void get() // Function to show an element of specific position
 {
     cout << "Enter the position of the array:";
     cin >> pos;
     cout << "The element in the" << pos + 1 << "position is: " << a[pos] << endl;
 }
-void set_val()//Function to set an value in specific position 
+void set_val() // Function to set an value in specific position
 {
     cout << "Enter the position of the array :";
     cin >> pos;
@@ -94,20 +94,41 @@ void set_val()//Function to set an value in specific position
     cout << "The new array comes out to be" << endl;
     printArray();
 }
-void elementSearch()//Function to search any element in the array
+void elementSearch() // Function to search any element in the array
 {
     cout << "Enter the element to be searched:" << endl;
     cin >> num;
-    while(a[pos]!=num){
+    while (a[pos] != num)
+    {
         pos++;
     }
-    cout<<num<<"is found in"<<pos+1<<"position"<<endl;
+    cout << num << "is found in" << pos + 1 << "position" << endl;
 }
-void max(){
-
+void max()
+{
+    max_num = a[0];
+    for (int i = 1; i < size; i++)
+    {
+        if (a[i] > max_num)
+        {
+            max_num = a[i];
+            max_index = i;
+        }
+    }
+    cout << "The maximum element in the array: " << max_num << "at" << max_index + 1 << endl;
 }
-void min(){
-    
+void min()
+{
+    min_num = a[0];
+    for (int i = 1; i < size; i++)
+    {
+        if (a[i] < min_num)
+        {
+            min_num = a[i];
+            min_index = i;
+        }
+    }
+    cout << "The minimum element in the array: " << min_num << "at" << min_index + 1 << endl;
 }
 void append()
 {
@@ -179,10 +200,10 @@ int main()
             append();
             break;
         case 8:
-            max();//max not yet completed
+            max(); // max not yet completed
             break;
         case 9:
-            min();//min not yet completed
+            min(); // min not yet completed
             break;
         case 10:
             return 0;
